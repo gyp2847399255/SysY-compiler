@@ -171,7 +171,7 @@ private:
         builder->startNodeAt(point, SyntaxKind::ASSIGN_STMT);
         terminalSymbol();
         SyntaxKind kind = tokens->first()->kind;
-        if (kind == SyntaxKind::GETINT_KW) {
+        if (kind == SyntaxKind::GETCHAR_KW) {
             terminalSymbol();
             CHECK_TOKEN(SyntaxKind::L_PAREN, ErrorKind::UNDEFINED_ERROR);
             CHECK_TOKEN(SyntaxKind::R_PAREN, ErrorKind::R_PAREN_LACKED);

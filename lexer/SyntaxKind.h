@@ -41,7 +41,7 @@ enum class SyntaxKind {
     STRING,
 
     MAIN_KW,
-    GETINT_KW,
+    GETCHAR_KW,
     PRINTF_KW,
     INT_KW,
     VOID_KW,
@@ -101,7 +101,7 @@ map<string, SyntaxKind> string2KeyWord = {
         {"if", SyntaxKind::IF_KW},
         {"else", SyntaxKind::ELSE_KW},
         {"while", SyntaxKind::WHILE_KW},
-        {"getint", SyntaxKind::GETINT_KW},
+        {"getchar", SyntaxKind::GETCHAR_KW},
         {"printf", SyntaxKind::PRINTF_KW},
         {"return", SyntaxKind::RETURN_KW},
         {"void", SyntaxKind::VOID_KW}
@@ -122,7 +122,7 @@ map<SyntaxKind, string> syntaxKind2Name = {
         {SyntaxKind::AND_LOGIC, "AND"},
         {SyntaxKind::OR_LOGIC, "OR"},
         {SyntaxKind::WHILE_KW, "WHILETK"},
-        {SyntaxKind::GETINT_KW, "GETINTTK"},
+        {SyntaxKind::GETCHAR_KW, "GETCHARTK"},
         {SyntaxKind::PRINTF_KW, "PRINTFTK"},
         {SyntaxKind::RETURN_KW, "RETURNTK"},
         {SyntaxKind::PLUS, "PLUS"},

@@ -1,3 +1,21 @@
+int getint() {
+	int x = 0, c = 0, minus = 0;
+	while((c < 48 || c > 57) && c != 45) {
+		c = getchar();
+	}
+	if (c == 45) {
+		minus = 1;
+		c = getchar();
+	}
+	while(c >= 48 && c <= 57) {
+		x = x * 10 + c - 48;
+		c = getchar();
+	}
+	if (minus) {
+		x = -x;
+	}
+	return x;
+}
 
 const int const01=1*1;
 const int const02=1+1*1;

@@ -2,16 +2,16 @@
 // Created by gyp on 2021/11/6.
 //
 
-#ifndef SYSYCOMPILER_GETINT_H
-#define SYSYCOMPILER_GETINT_H
-class Getint : public Quaternion {
+#ifndef SYSYCOMPILER_GETCHAR_H
+#define SYSYCOMPILER_GETCHAR_H
+class Getchar : public Quaternion {
     string assigned;
 public:
-    explicit Getint(string *assigned) : Quaternion(IRKind::GETINT),
+    explicit Getchar(string *assigned) : Quaternion(IRKind::GETCHAR),
     assigned(*assigned) {}
 
     void print(ofstream *out) override {
-        *out << "getInt " << assigned << endl;
+        *out << "getChar " << assigned << endl;
     }
 
     string* getDefine() override {
@@ -30,4 +30,4 @@ public:
         }
     }
 };
-#endif //SYSYCOMPILER_GETINT_H
+#endif //SYSYCOMPILER_GETCHAR_H

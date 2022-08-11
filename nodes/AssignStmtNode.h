@@ -37,16 +37,16 @@ public:
         string *offset = ret->param;
         ret->param = nullptr;
         string *integer;
-        bool getInt = false;
+        bool getChar = false;
         for (int i = 1; i < children.size(); i++) {
             children[i]->buildIR(ctx, ret);
             if (children[i]->getKind() == SyntaxKind::EXPR) {
                 integer = ret->res;
-            } else if (children[i]->getKind() == SyntaxKind::GETINT_KW) {
+            } else if (children[i]->getKind() == SyntaxKind::GETCHAR_KW) {
                 integer = new string(controlFlowGraphBuilder.tmpVar());
-                controlFlowGraphBuilder.insert(new ReadInt());
-                controlFlowGraphBuilder.insert(new Getint(integer));
-                getInt = true;
+                controlFlowGraphBuilder.insert(new ReadChar());
+                controlFlowGraphBuilder.insert(new Getchar(integer));
+                getChar = true;
             }
         }
         if (isArray) {
@@ -55,7 +55,7 @@ public:
         } else {
             controlFlowGraphBuilder.insert(new Assign(lVal, integer));
         }
-        if (getInt) {
+        if (getChar) {
             delete integer;
         }
     }

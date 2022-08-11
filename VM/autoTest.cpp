@@ -39,8 +39,28 @@ int main(int argc, char **argv) {
 		system(cmd);
 		sprintf(cmd, "./compiler");
 		system(cmd);
-		sprintf(cmd, "cp ../test/input%d.txt input.txt", i);
-		system(cmd);
+        sprintf(cmd, "../test/input%d.txt", i);
+        FILE *inFile = fopen(cmd, "r");
+        sprintf(cmd, "input.txt");
+        FILE *outFile = fopen(cmd, "w");
+        if (inFile == nullptr || outFile == nullptr) {
+            exit(-1);
+        }
+        char c;
+        while ((c = fgetc(inFile)) != EOF) {
+            if (c != '\n' && c != '\r') {
+                fputc(c, outFile);
+                fputc('\n', outFile);
+            } else {
+                fputc('n', outFile);
+                fputc('\n', outFile);
+            }
+        }
+        fputc('n', outFile);
+        fputc('\n', outFile);
+        fclose(inFile);
+        fclose(outFile);
+        
         if (ir) {
             sprintf(cmd, "java Main > output.txt");
             system(cmd);

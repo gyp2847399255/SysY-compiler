@@ -2,15 +2,15 @@
 // Created by gyp on 2021/11/16.
 //
 
-#ifndef SYSYCOMPILER_READINT_H
-#define SYSYCOMPILER_READINT_H
+#ifndef SYSYCOMPILER_READCHAR_H
+#define SYSYCOMPILER_READCHAR_H
 
-class ReadInt : public Quaternion {
+class ReadChar : public Quaternion {
 public:
-    ReadInt() : Quaternion(IRKind::READ_INT) {}
+    ReadChar() : Quaternion(IRKind::READ_CHAR) {}
 
     void print(ofstream *out) override {
-        *out << "readInt" << endl;
+        *out << "readChar" << endl;
     }
 
     void globalValueNumbering(map<string, int> *constValue, map<string, string> *copyValue,
@@ -18,8 +18,8 @@ public:
                               map<IRKind, set<HashOfQuaternion>*>* cur) override {}
 
     void assembly(ofstream *out, Function*) override {
-        *out << "li $v0, 5" << endl;
+        *out << "li $v0, 12" << endl;
         *out << "syscall" << endl;
     }
 };
-#endif //SYSYCOMPILER_READINT_H
+#endif //SYSYCOMPILER_READCHAR_H
